@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="container">
+    <h1>Welcome to the Wandering Serpent!</h1>
+    <p>The most amazing wares you can find to help you in your journeys!</p>
+    <%= link_to wares_path do %>
+      <button class="btn btn-primary">Browse our wares</button>
+    <% end %>
+  </div>
+</div>
