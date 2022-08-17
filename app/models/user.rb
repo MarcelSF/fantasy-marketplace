@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :wares, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  has_many :wares, through: :bookings
+  has_many :booked_wares, through: :bookings
+  has_one_attached :photo
 end
