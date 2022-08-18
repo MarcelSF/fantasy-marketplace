@@ -3,18 +3,15 @@
 <div class="card-grid">
   <% @wares.each do |ware|  %>
     <div class="card">
-      <div class="card-image">
-        <%= cl_image_tag ware.photos.first.key, height: 200, width: 300, crop: :fill if ware.photos.any?%>
-      </div>
+      <%= link_to ware_path(ware) do %>
+        <div class="card-image">
+          <%= cl_image_tag ware.photos.first.key, height: 320, width: 298, crop: :fill if ware.photos.any?%>
+        </div>
+      <% end %>
       <div class="card-content">
-        <h2><%= ware.name %></h2>
+        <h3><%= ware.name %></h3>
         <p><%= ware.description %></p>
         <p><%= ware.price %></p>
-      </div>
-      <div class="card-actions">
-        <%= link_to ware_path(ware) do %>
-          <button class="btn btn-primary">View</button>
-        <% end %>
       </div>
     </div>
   <% end %>
