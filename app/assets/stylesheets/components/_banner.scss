@@ -2,7 +2,7 @@
   background-image: asset-url('market1.jpg');
   background-size: cover;
   background-position: center;
-  padding: 240px 0;
+  padding: 270px 0;
 }
 
 .banner h1 {
@@ -14,8 +14,8 @@
 }
 
 .banner p {
-  font-size: 20px;
-  color: white;
+  font-size: 22px;
+  color: $gold;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }

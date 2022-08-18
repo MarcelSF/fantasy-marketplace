@@ -1,20 +1,28 @@
-<h3><%= @ware.name %></h3>
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <%= cl_image_tag @ware.photos.first.key, height: 300, width: 400, crop: :fill %>
+<div class="container">
+  <h3><%= @ware.name %></h3>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= cl_image_tag @ware.photos.first.key, height: 400, width: 500, crop: :fill %>
+      </div>
+      <% if @ware.photos.size > 1 %>
+        <% @ware.photos.each do |photo| %>
+          <div class="carousel-item">
+            <%= cl_image_tag photo.key, height: 400, width: 500, crop: :fill %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+  <p><%= @ware.description %></p>
+  price: <%= @ware.price %>
+  Sold by: <%= @ware.user.name %>
 </div>
-<p><%= @ware.description %></p>
-price: <%= @ware.price %>
-Sold by: <%= @ware.user.name %>

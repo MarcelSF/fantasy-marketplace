@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :wares do
     resources :bookings, only: [:create, :destroy]
+    collection do
+      get "my_wares", as: :my
+    end
   end
 end

@@ -1,0 +1,20 @@
+<div class="card-grid">
+  <% @wares.each do |ware|  %>
+    <div class="card">
+      <%= link_to ware_path(ware) do %>
+        <div class="card-image">
+          <%= cl_image_tag ware.photos.first.key, height: 320, width: 298, crop: :fill if ware.photos.any?%>
+        </div>
+      <% end %>
+      <div class="card-content">
+        <h3><%= ware.name %></h3>
+        <p><%= ware.description %></p>
+        <p><%= ware.price %></p>
+        <div class="d-flex justify-content-around">
+          <%= link_to "Remove", ware_path(ware), data: {turbo_method: :delete}, class: "btn btn-danger" %>
+          <%= link_to "Edit", edit_ware_path(ware),class: "btn btn-info" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

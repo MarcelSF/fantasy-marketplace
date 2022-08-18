@@ -1,0 +1,11 @@
+<div class="container">
+  <h3>What would you like to rent out to fellow adventurers?</h3>
+  <p>Remember to give it a good description and affordable price!</p>
+  <%= simple_form_for(ware) do |f| %>
+    <%= f.input :name, label: 'What the name of your legendary item?' %>
+    <%= f.input :description, label: 'Describe your item' %>
+    <%= f.input :price, label: 'How much would you like to charge for it?' %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit "Submit", class: "btn btn-success" %>
+  <% end %>
+</div>
