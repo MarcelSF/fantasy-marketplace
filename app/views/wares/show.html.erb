@@ -25,4 +25,12 @@
   <p><%= @ware.description %></p>
   price: <%= @ware.price %>
   Sold by: <%= @ware.user.name %>
+
+  <div class="booking-form">
+    <%= simple_form_for [@ware, @booking] do |f| %>
+      <%= f.input :start_time, as: :date, label: "Start Date", html5: true, input_html: { min: Date.today } %>
+      <%= f.input :end_time, as: :date, label: "End Date", html5: true, input_html: { min: Date.today } %>
+      <%= f.submit "Book", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
