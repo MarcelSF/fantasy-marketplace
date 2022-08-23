@@ -1,19 +1,28 @@
 <h1>Browse our legendary wares!</h1>
 
-<div class="card-grid">
-  <% @wares.each do |ware|  %>
-    <div class="card">
-      <%= link_to ware_path(ware) do %>
-        <div class="card-image">
-          <%= cl_image_tag ware.photos.first.key, height: 320, width: 298, crop: :fill if ware.photos.any?%>
+<div class="container d-flex">
+  <div class="card-grid">
+    <% @wares.each do |ware|  %>
+      <div class="card">
+        <%= link_to ware_path(ware) do %>
+          <div class="card-image">
+            <%= cl_image_tag ware.photos.first.key, height: 320, width: 200, crop: :fill if ware.photos.any?%>
+          </div>
+        <% end %>
+        <div class="card-content">
+          <h3><%= ware.name %></h3>
+          <p><%= ware.description %></p>
+          <p><%= ware.price %></p>
         </div>
-      <% end %>
-      <div class="card-content">
-        <h3><%= ware.name %></h3>
-        <p><%= ware.description %></p>
-        <p><%= ware.price %></p>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
+  <div style='width: 100%; height: 600px;'
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-map-my-name-value="Marcel"></div>
 </div>
+
 

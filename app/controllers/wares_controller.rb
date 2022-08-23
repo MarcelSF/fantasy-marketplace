@@ -3,6 +3,13 @@ class WaresController < ApplicationController
 
   def index
     @wares = Ware.all
+    @markers = @wares.geocoded.map do |ware|
+      {
+        lat: ware.latitude,
+        lng: ware.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {ware: ware})
+      }
+    end
   end
 
   def my_wares
