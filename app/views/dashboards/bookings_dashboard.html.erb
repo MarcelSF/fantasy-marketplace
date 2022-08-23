@@ -1,0 +1,24 @@
+<div class="container my-3">
+  <% if current_user.bookings.any? %>
+    <h3>Here are your bookings:</h3>
+    <div class="bookings d-flex">
+      <% @bookings.each do |booking| %>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= booking.ware.name %></h5>
+            <p class="card-text">Start Date: <%= booking.start_time.strftime('%FT%T') %></p>
+            <p class="card-text">End Date: <%= booking.end_time.strftime('%FT%T') %></p>
+            <p class="card-text">Price: <%= booking.ware.price %></p>
+            <p class="card-text">Total Price: <%= booking.total_price %></p>
+            <%# <p class="card-text">Status: <%= booking.status %></p>
+
+              <%# <%= link_to "Cancel", booking_path(booking), method: :delete, class: "btn btn-danger" %>
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <h3>You have no bookings yet!</h3>
+  <% end %>
+</div>
