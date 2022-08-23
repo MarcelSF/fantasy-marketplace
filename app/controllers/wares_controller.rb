@@ -50,6 +50,6 @@ class WaresController < ApplicationController
   end
 
   def ware_params
-    params.require(:ware).permit(:name, :description, :price, :picture_url, photos: [])
+    params.require(:ware).permit(:name, :description, :price, :address, :picture_url, photos: [])
   end
 end

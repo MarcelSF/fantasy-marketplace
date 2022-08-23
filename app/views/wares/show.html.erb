@@ -23,8 +23,9 @@
     </button>
   </div>
   <p><%= @ware.description %></p>
-  price: <%= @ware.price %>
-  Sold by: <%= @ware.user.name %>
+  <p>price: <%= @ware.price %></p>
+  <p>Sold by: <%= @ware.user.name %></p>
+  <p>Where can I find this?: <%= @ware.address %></p>
 
   <div class="booking-form">
     <%= simple_form_for [@ware, @booking] do |f| %>

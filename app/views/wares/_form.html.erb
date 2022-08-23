@@ -5,6 +5,7 @@
     <%= f.input :name, label: 'What the name of your legendary item?' %>
     <%= f.input :description, label: 'Describe your item' %>
     <%= f.input :price, label: 'How much would you like to charge for it?' %>
+    <%= f.input :address, label: 'Where is this artifact located?' %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit "Submit", class: "btn btn-success" %>
   <% end %>
